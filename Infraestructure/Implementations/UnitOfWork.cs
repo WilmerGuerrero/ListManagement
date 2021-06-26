@@ -25,5 +25,10 @@ namespace Infraestructure.Implementations
         {
             await _context.DisposeAsync();
         }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
     }
 }

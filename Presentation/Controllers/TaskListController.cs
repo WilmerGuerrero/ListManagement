@@ -53,15 +53,14 @@ namespace Presentation.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, [FromBody] TaskList model)
+        public async Task<ActionResult> Complete(int id)
         {
             var dbTask = await _unitOfWork.TaskList.GetAsync(id);
             try
             {
                 if (dbTask != null)
                 {
-                    dbTask.Name = model.Name;
-                    dbTask.Completed = model.Completed;
+                    _unitOfWork.TaskList.CompleteTask(id);
                     await _unitOfWork.CompleteAsync();
                     return NoContent();
                 }

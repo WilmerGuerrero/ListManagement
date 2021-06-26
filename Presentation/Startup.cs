@@ -46,7 +46,7 @@ namespace Presentation
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("db")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<ITaskListRepository,TaskListRepository>();
+            services.AddScoped<ITaskListRepository,TaskListRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

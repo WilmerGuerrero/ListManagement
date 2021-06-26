@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Contracts
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork:IDisposable
     {
         public ITaskListRepository TaskList { get; }
         Task CompleteAsync();
